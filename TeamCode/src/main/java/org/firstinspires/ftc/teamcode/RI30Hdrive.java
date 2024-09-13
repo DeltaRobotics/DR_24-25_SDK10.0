@@ -69,7 +69,7 @@ public class RI30Hdrive extends LinearOpMode
 
 
             //smaller numbers go up higher
-            dumper.setPosition(0.65);
+            dumper.setPosition(0.6);
             armFingerL.setPosition(0.6);
             armFingerR.setPosition(0.4);
 
@@ -77,14 +77,16 @@ public class RI30Hdrive extends LinearOpMode
             arm.setTargetPosition(600);
             arm.setPower(0.175);
             arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.wait(200,robot.odometers);
+            robot.wait(1000,robot.odometers);
             armWrist.setPosition(0);
         }
+
+
 
         while (opModeIsActive())
         {
 
-            robot.mecanumDrive(gamepad1.right_stick_y, -gamepad1.right_stick_x, gamepad1.left_stick_x, speed);
+            robot.mecanumDrive(gamepad1.right_stick_y, -gamepad1.right_stick_x, -gamepad1.left_stick_x, speed);
 
             //Bucket
             if (gamepad1.a){
@@ -148,7 +150,7 @@ public class RI30Hdrive extends LinearOpMode
             if (gamepad1.dpad_down){
 
                 armWrist.setPosition(0);
-                arm.setTargetPosition(450);
+                arm.setTargetPosition(600);
                 arm.setPower(0.175);
                 arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             }
